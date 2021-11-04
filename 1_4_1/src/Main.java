@@ -17,7 +17,7 @@ public class Main {
                 double firstNum = Double.parseDouble(scanner.nextLine());
                 System.out.println("Введите второе число");
                 float secondNum = Float.parseFloat(scanner.nextLine());
-                if ((firstNum - secondNum) < 0.2) {
+                if (Math.abs(firstNum - secondNum) < 0.2) {
                     System.out.println("Числа равны!");
                 } else {
                     System.out.println("Числа не равны");
