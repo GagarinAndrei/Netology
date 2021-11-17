@@ -6,8 +6,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String[] food = {"Картошка", "Морковка", "Курица", "Плов", "Квас"};
         int[] prices = {100, 400, 300, 299, 50};
-        int[] quanitityArray = new int[5];
-        int sumFoodPrice = 0;
+        int[] quantityArray = new int[5];
 
         System.out.println("Список товаров для покупки:");
         for (int i = 0; i < food.length; i++) {
@@ -26,16 +25,16 @@ public class Main {
             int product = Integer.parseInt(parts[0]) - 1;
             int quantity = Integer.parseInt(parts[1]);
 
-            quanitityArray[product] += quantity;
+            quantityArray[product] += quantity;
 
         }
-        System.out.println("Наименование:        кол-во:      стоимость:");
 
+        int sumFoodPrice = 0;
+        System.out.printf("%-15s %-15s %-15s%n","Наименование:", "кол-во:", "стоимость:");
         for (int i = 0; i < food.length; i++) {
-            sumFoodPrice = sumFoodPrice + quanitityArray[i] * prices[i];
-            System.out.println((i + 1) + ". " + food[i] + "    " + quanitityArray[i] + "    "
-                    + (quanitityArray[i] * prices[i]));
+            sumFoodPrice = sumFoodPrice + quantityArray[i] * prices[i];
+            System.out.printf("%-2d%-15s%-15d%-15d%n", (i + 1), food[i], quantityArray[i], (quantityArray[i] * prices[i]));
         }
-        System.out.println("Итого: " + sumFoodPrice);
+        System.out.printf("%32s%-10d", "Итого: ", sumFoodPrice);
     }
 }
