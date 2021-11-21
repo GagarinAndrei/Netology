@@ -1,7 +1,5 @@
-import java.util.Scanner;
-
 public class Main {
-    public static final int SIZE = 3;
+    public static final int SIZE = 5;
     public static final char EMPTY = '-';
     public static final char CROSS = 'X';
     public static final char ZERO = 'O';
@@ -14,63 +12,109 @@ public class Main {
             }
         }
 
-        Scanner scanner = new Scanner(System.in);
-
-        boolean isCrossTurn = true;
-
-        while (true) {
-            printField(field);
-            System.out.println("Ходят " + (isCrossTurn ? "крестики" : "нолики") + "!");
-            String input = scanner.nextLine(); // "2 3"
-            String[] parts = input.split(" "); // ["2" , "3"]
-            int r = Integer.parseInt(parts[0]) - 1; // 2-1 = 1
-            int c = Integer.parseInt(parts[1]) - 1; // 3-1 = 2
-
-            if (field[r][c] != EMPTY) {
-                System.out.println("Сюда ходить нельзя");
-                continue;
-            }
-
-            field[r][c] = isCrossTurn ? CROSS : ZERO;
-            if (isWin(field, isCrossTurn ? CROSS : ZERO)) {
-                printField(field);
-                System.out.println("Победили " + (isCrossTurn ? "крестики" : "нолики"));
-                break;
-            } else {
-                if (isCrossTurn) {
-                    isCrossTurn = false;
-                } else {
-                    isCrossTurn = true;
-                }
-                //isCrossTurn = !isCrossTurn;
-            }
+        field[0][0] = CROSS;
+        field[0][1] = CROSS;
+        field[1][1] = CROSS;
+        field[2][2] = CROSS;
+        field[0][2] = CROSS;
+        printField(field);
+        if (isWin(field, CROSS)) {
+            System.out.println("Победили " + CROSS);
         }
 
+        printLine();
+        emptyFields(field);
+
+        for (int i = 0; i < SIZE; i++) {
+            field[i][i] = CROSS;
+        }
+        printField(field);
+        if (isWin(field, CROSS)) {
+            System.out.println("Победили " + CROSS);
+        }
+
+        printLine();
+        emptyFields(field);
+
+        for (int i = 0; i < SIZE; i++) {
+            field[1][i] = CROSS;
+        }
+        printField(field);
+        if (isWin(field, CROSS)) {
+            System.out.println("Победили " + CROSS);
+        }
+
+        printLine();
+        emptyFields(field);
+
+        for (int i = 0; i < SIZE; i++) {
+            field[i][2] = CROSS;
+        }
+        printField(field);
+        if (isWin(field, CROSS)) {
+            System.out.println("Победили " + CROSS);
+        }
+
+        printLine();
+        emptyFields(field);
+
+        for (int i = 0; i < SIZE; i++) {
+            field[i][(SIZE - 1) - i] = CROSS;
+        }
+        printField(field);
+        if (isWin(field, CROSS)) {
+            System.out.println("Победили " + CROSS);
+        }
+
+        printLine();
         System.out.println("Игра закончена!");
     }
 
-    // !!ВНИМАНИЕ!!
-    // Работает только для 3x3
-    // Этот метод вам и надо переписать
     public static boolean isWin(char[][] field, char player) {
-        if (field[0][0] == player && field[0][1] == player && field[0][2] == player)
-            return true;
-        if (field[1][0] == player && field[1][1] == player && field[1][2] == player)
-            return true;
-        if (field[2][0] == player && field[2][1] == player && field[2][2] == player)
-            return true;
 
-        if (field[0][0] == player && field[1][0] == player && field[2][0] == player)
-            return true;
-        if (field[0][1] == player && field[1][1] == player && field[2][1] == player)
-            return true;
-        if (field[0][2] == player && field[1][2] == player && field[2][2] == player)
-            return true;
+        int playerCount = 0;
+        for (int row = 0; row < SIZE; row++) {
+            for (int cell = 0; cell < SIZE; cell++) {
+                if (field[row][cell] == player) {
+                    playerCount++;
+                    if (playerCount == SIZE) {
+                        return true;
+                    }
+                }
+            }
+            playerCount = 0;
+        }
 
-        if (field[0][0] == player && field[1][1] == player && field[2][2] == player)
-            return true;
-        if (field[2][0] == player && field[1][1] == player && field[0][2] == player)
-            return true;
+        for (int cell = 0; cell < SIZE; cell++) {
+            for (int row = 0; row < SIZE; row++) {
+                if (field[row][cell] == player) {
+                    playerCount++;
+                    if (playerCount == SIZE) {
+                        return true;
+                    }
+                }
+            }
+            playerCount = 0;
+        }
+
+        for (int row = 0; row < SIZE; row++) {
+            if (field[row][row] == player) {
+                playerCount++;
+                if (playerCount == SIZE) {
+                    return true;
+                }
+            }
+        }
+        playerCount = 0;
+
+        for (int row = 0; row < SIZE; row++) {
+            if (field[row][(SIZE - 1) - row] == player) {
+                playerCount++;
+                if (playerCount == SIZE) {
+                    return true;
+                }
+            }
+        }
 
         return false;
     }
@@ -81,6 +125,18 @@ public class Main {
                 System.out.print(cell + " ");
             }
             System.out.println();
+        }
+    }
+
+    public static void printLine() {
+        System.out.println("=======================");
+    }
+
+    public static void emptyFields(char[][] field) {
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                field[i][j] = EMPTY;
+            }
         }
     }
 }
