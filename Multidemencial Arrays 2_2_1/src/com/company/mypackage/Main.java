@@ -31,15 +31,12 @@ public class Main {
 
         switch (turnAngle) {
             case 1:
-                printMatrix(matrix);
-                break;
-            case 2:
                 printMatrix(rotateMatrix90(matrix));
                 break;
-            case 3:
+            case 2:
                 printMatrix(rotateMatrix180(matrix));
                 break;
-            case 4:
+            case 3:
                 printMatrix(rotateMatrix270(matrix));
                 break;
         }
@@ -51,10 +48,9 @@ public class Main {
 
     public static void printMenu() {
         System.out.println("Выберите угол поворота матрицы:");
-        System.out.println("1 - для поворота на 0 градусов");
-        System.out.println("2 - для поворота на 90 градусов");
-        System.out.println("3 - для поворота на 180 градусов");
-        System.out.println("4 - для поворота на 270 градусов");
+        System.out.println("1 - для поворота на 90 градусов");
+        System.out.println("2 - для поворота на 180 градусов");
+        System.out.println("3 - для поворота на 270 градусов");
     }
 
     public static void printMatrix(int[][] matrix) {
