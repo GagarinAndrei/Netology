@@ -1,5 +1,3 @@
-import ru.netology.weapons.Weapon;
-
 import java.util.Scanner;
 
 public class Main {

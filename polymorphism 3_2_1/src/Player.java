@@ -17,7 +17,7 @@ public class Player {
     }
 
     public void shotWithWeapon(int slot) {
-        if (slot < -1 || slot > weaponSlots.length || slot == 0) {
+        if (slot < 0 || slot >= weaponSlots.length) {
             System.out.println("Такого оружия нет!");
         }
         Weapon weapon = weaponSlots[slot];
