@@ -6,9 +6,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Player player = new Player();
         System.out.format("У вас %d слотов с оружием.%n"
-            + "Введите номер, что бы выстрелить%n"
-            + "-1 чтобы выйти%n",
-            player.getSlotsCount()
+                        + "Введите номер, что бы выстрелить%n"
+                        + "-1 чтобы выйти%n",
+                player.getSlotsCount()
         );
         int slot;
 
