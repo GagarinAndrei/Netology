@@ -1,7 +1,9 @@
 package ru.netology.librerianusers;
 
 public interface Administrator {
-    void issuedBook(String worker, String user, String book);
+    String getName();
 
-    void reported(String worker, String user, String book);
+    void issuedBook(Administrator administrator, Reader reader, String book);
+
+    void reported(Administrator administrator, Reader reader, String book);
 }

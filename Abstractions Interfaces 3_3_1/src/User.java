@@ -1,3 +1,5 @@
+import ru.netology.librerianusers.Administrator;
+import ru.netology.librerianusers.Librarian;
 import ru.netology.librerianusers.Reader;
 import ru.netology.librerianusers.Supplier;
 
@@ -8,22 +10,23 @@ public class User implements Reader, Supplier {
         this.name = name;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
     @Override
-    public void takeBook(String username, String username2, String book) {
-        System.out.println("Читатель " + username + " попросил " + book + " у администратора " + username2);
+    public void takeBook(Reader reader, Administrator administrator, String book) {
+        System.out.println("Читатель " + reader.getName() + " попросил " + book + " у администратора " + administrator.getName());
     }
 
     @Override
-    public void giveBook(String username, String username2, String book) {
-        System.out.println("Читатель " + username + " отдаёт книгу " + book + " администратору " + username2);
+    public void giveBook(Reader reader, Administrator administrator, String book) {
+        System.out.println("Читатель " + reader.getName() + " отдаёт " + book + " администратору " + administrator.getName());
     }
 
     @Override
-    public void broughtBook(String username, String username2, String book) {
-        System.out.println("Поставщик " + username + " поставил " + book + " библиатекарю " + username2);
+    public void broughtBook(Supplier supplier, Librarian librarian, String book) {
+        System.out.println("Поставщик " + supplier.getName() + " поставил " + book + " библиатекарю " + librarian.getName());
     }
 }

@@ -1,6 +1,8 @@
 package ru.netology.librerianusers;
 
 public interface Supplier {
-    void broughtBook(String worker, String user, String book);
+    String getName();
+
+    void broughtBook(Supplier supplier, Librarian librarian, String book);
 
 }

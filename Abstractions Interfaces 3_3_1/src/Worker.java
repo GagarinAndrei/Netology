@@ -1,5 +1,7 @@
 import ru.netology.librerianusers.Administrator;
 import ru.netology.librerianusers.Librarian;
+import ru.netology.librerianusers.Reader;
+import ru.netology.librerianusers.Supplier;
 
 public class Worker implements Librarian, Administrator {
     final String name;
@@ -13,17 +15,17 @@ public class Worker implements Librarian, Administrator {
     }
 
     @Override
-    public void orderBook(String worker, String user, String book) {
-        System.out.println("Библиотекарь " + worker + " заказал " + book + " у поставщика " + user);
+    public void orderBook(Librarian librarian, Supplier supplier, String book) {
+        System.out.println("Библиотекарь " + librarian.getName() + " заказал " + book + " у поставщика " + supplier.getName());
     }
 
     @Override
-    public void issuedBook(String worker, String user, String book) {
-        System.out.println("Администратор " + worker + " выдал " + book + " читателю " + user);
+    public void issuedBook(Administrator administrator, Reader reader, String book) {
+        System.out.println("Администратор " + administrator.getName() + " выдал " + book + " читателю " + reader.getName());
     }
 
     @Override
-    public void reported(String worker, String user, String book) {
-        System.out.println("Администратор " + worker + " сообщил читателю " + user + ", что он не вернул " + book);
+    public void reported(Administrator administrator, Reader reader, String book) {
+        System.out.println("Администратор " + administrator.getName() + " сообщил читателю " + reader.getName() + ", что он не вернул " + book);
     }
 }

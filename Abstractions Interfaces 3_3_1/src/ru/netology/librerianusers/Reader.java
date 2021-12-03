@@ -1,8 +1,10 @@
 package ru.netology.librerianusers;
 
 public interface Reader {
-    void takeBook(String user, String user2, String book);
+    String getName();
 
-    void giveBook(String user, String user2, String book);
+    void takeBook(Reader reader, Administrator administrator, String book);
+
+    void giveBook(Reader reader, Administrator administrator, String book);
 
 }

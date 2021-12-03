@@ -5,11 +5,11 @@ public class Main {
         User user = new User("Иван");
         Worker worker = new Worker("Василий");
 
-        worker.orderBook(worker.getName(), user.getName(), book);
-        user.broughtBook(user.getName(), worker.getName(), book);
-        user.takeBook(user.getName(), worker.getName(), book);
-        worker.issuedBook(worker.getName(), user.getName(), book);
-        worker.reported(worker.getName(), user.getName(), book);
-        user.giveBook(user.getName(), worker.getName(), book);
+        worker.orderBook(worker, user, book);
+        user.broughtBook(user, worker, book);
+        user.takeBook(user, worker, book);
+        worker.issuedBook(worker, user, book);
+        worker.reported(worker, user, book);
+        user.giveBook(user, worker, book);
     }
 }
