@@ -16,17 +16,17 @@ public class User implements Reader, Supplier {
     }
 
     @Override
-    public void takeBook(Reader reader, Administrator administrator, String book) {
-        System.out.println("Читатель " + reader.getName() + " попросил " + book + " у администратора " + administrator.getName());
+    public void takeBook(Administrator administrator, String book) {
+        System.out.println("Читатель " + this.getName() + " попросил " + book + " у администратора " + administrator.getName());
     }
 
     @Override
-    public void giveBook(Reader reader, Administrator administrator, String book) {
-        System.out.println("Читатель " + reader.getName() + " отдаёт " + book + " администратору " + administrator.getName());
+    public void giveBook(Administrator administrator, String book) {
+        System.out.println("Читатель " + this.getName() + " отдаёт " + book + " администратору " + administrator.getName());
     }
 
     @Override
-    public void broughtBook(Supplier supplier, Librarian librarian, String book) {
-        System.out.println("Поставщик " + supplier.getName() + " поставил " + book + " библиатекарю " + librarian.getName());
+    public void broughtBook(Librarian librarian, String book) {
+        System.out.println("Поставщик " + this.getName() + " поставил " + book + " библиатекарю " + librarian.getName());
     }
 }

@@ -15,17 +15,17 @@ public class Worker implements Librarian, Administrator {
     }
 
     @Override
-    public void orderBook(Librarian librarian, Supplier supplier, String book) {
-        System.out.println("Библиотекарь " + librarian.getName() + " заказал " + book + " у поставщика " + supplier.getName());
+    public void orderBook(Supplier supplier, String book) {
+        System.out.println("Библиотекарь " + this.getName() + " заказал " + book + " у поставщика " + supplier.getName());
     }
 
     @Override
-    public void issuedBook(Administrator administrator, Reader reader, String book) {
-        System.out.println("Администратор " + administrator.getName() + " выдал " + book + " читателю " + reader.getName());
+    public void issuedBook(Reader reader, String book) {
+        System.out.println("Администратор " + this.getName() + " выдал " + book + " читателю " + reader.getName());
     }
 
     @Override
-    public void reported(Administrator administrator, Reader reader, String book) {
-        System.out.println("Администратор " + administrator.getName() + " сообщил читателю " + reader.getName() + ", что он не вернул " + book);
+    public void reported(Reader reader, String book) {
+        System.out.println("Администратор " + this.getName() + " сообщил читателю " + reader.getName() + ", что он не вернул " + book);
     }
 }
