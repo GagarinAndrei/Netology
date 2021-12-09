@@ -19,8 +19,8 @@ public class Main {
         savings.pay(100);
         printLine();
 
-        checking.addMoney(200);
-        checking.transfer(credit, 250);
+        checking.addMoney(3000);
+        checking.transfer(credit, 200);
         checking.pay(150);
         printLine();
 

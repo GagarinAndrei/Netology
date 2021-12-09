@@ -9,6 +9,11 @@ public class SavingsAccount extends Account {
     }
 
     @Override
+    public int getBalance(Account account) {
+        return this.balance;
+    }
+
+    @Override
     public void pay(int amount) {
         System.out.println("Нельзя платить со Сбер счёта!");
         System.out.println(getBalance());
@@ -23,7 +28,13 @@ public class SavingsAccount extends Account {
         System.out.println("Перевод со Сбер счёта " + amount);
         this.balance -= amount;
         account.addMoney(amount);
+
+        if ((account instanceof CreditAccount) && getBalance(account) > 0) {
+            this.balance += amount;
+        }
+
         System.out.println(getBalance());
+
     }
 
     @Override

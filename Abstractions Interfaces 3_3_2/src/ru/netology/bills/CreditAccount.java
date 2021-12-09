@@ -9,6 +9,11 @@ public class CreditAccount extends Account {
     }
 
     @Override
+    public int getBalance(Account account) {
+        return this.balance;
+    }
+
+    @Override
     public void pay(int amount) {
         System.out.println("Платёж с Кредит счёта " + amount);
         this.balance -= amount;

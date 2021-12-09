@@ -9,6 +9,11 @@ public class CheckingAccount extends Account {
     }
 
     @Override
+    public int getBalance(Account account) {
+        return this.balance;
+    }
+
+    @Override
     public void pay(int amount) {
         if ((this.balance - amount) < 0) {
             System.out.println("Не хватает средств!");
@@ -24,9 +29,14 @@ public class CheckingAccount extends Account {
             System.out.println("Не хватает средств!");
             return;
         }
-        System.out.println("Перевод со Расчётного счёта " + amount);
+        System.out.println("Перевод с Расчётного счёта " + amount);
         this.balance -= amount;
         account.addMoney(amount);
+
+        if ((account instanceof CreditAccount) && getBalance(account) > 0) {
+            this.balance += amount;
+        }
+
         System.out.println(getBalance());
     }
 
