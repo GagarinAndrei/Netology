@@ -14,25 +14,18 @@ public class CreditAccount extends Account {
     }
 
     @Override
-    public int getBalance(Account account) {
-        return this.balance;
-    }
-
-    @Override
-    public boolean pay(int amount) {
+    public void pay(int amount) {
         System.out.println("Платёж с Кредит счёта");
         System.out.println("Платёж с Кредит счёта: " + amount);
         this.balance -= amount;
         System.out.println(getBalance());
-        return true;
     }
 
     @Override
-    public boolean transfer(Account account, int amount) {
+    public void transfer(Account account, int amount) {
         System.out.println("Перевод с Кредит счёта");
         System.out.println("Нельзя переводить с Кредит счёта");
         System.out.println(getBalance());
-        return false;
     }
 
     @Override

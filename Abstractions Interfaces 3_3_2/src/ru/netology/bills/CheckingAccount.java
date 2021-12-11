@@ -14,34 +14,23 @@ public class CheckingAccount extends Account {
     }
 
     @Override
-    public int getBalance(Account account) {
-        return this.balance;
-    }
-
-    @Override
-    public boolean pay(int amount) {
+    public void pay(int amount) {
         if (isOk(amount)) {
             System.out.println("Платёж с Расчёт счёта " + amount);
             this.balance -= amount;
-            System.out.println(getBalance());
-            return true;
         } else {
             System.out.println("Не хватает средств на Расчёт счёте!");
-            System.out.println(getBalance());
-            return false;
         }
+        System.out.println(getBalance());
+
     }
 
     @Override
-    public boolean transfer(Account account, int amount) {
+    public void transfer(Account account, int amount) {
         if (isOk(amount) && account.addMoney(amount)) {
             this.balance -= amount;
-            System.out.println(getBalance());
-            return true;
-        } else {
-            System.out.println(getBalance());
-            return false;
         }
+        System.out.println(getBalance());
     }
 
     @Override
