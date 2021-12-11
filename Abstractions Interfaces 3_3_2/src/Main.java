@@ -12,20 +12,26 @@ public class Main {
         showBalance(savings);
         showBalance(checking);
         showBalance(credit);
-        printLine();
+        printDoubleLine();
 
         savings.addMoney(200);
-        savings.transfer(checking, 40);
-        savings.pay(100);
         printLine();
+        savings.transfer(checking, 40);
+        printLine();
+        savings.pay(100);
+        printDoubleLine();
 
         checking.addMoney(3000);
-        checking.transfer(credit, 200);
-        checking.pay(150);
         printLine();
+        checking.transfer(credit, 200);
+        printLine();
+        checking.pay(150);
+        printDoubleLine();
 
         credit.pay(1000);
+        printLine();
         credit.transfer(savings, 500);
+        printLine();
         credit.addMoney(350);
     }
 
@@ -35,5 +41,9 @@ public class Main {
 
     public static void printLine() {
         System.out.println("____________________________");
+    }
+
+    public static void printDoubleLine() {
+        System.out.println("============================");
     }
 }
