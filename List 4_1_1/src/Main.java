@@ -27,7 +27,7 @@ public class Main {
                 case 3:
                     printToDoList(toDoList);
                     System.out.println("Какую задачу удалить?");
-                    toDoList.remove((Integer.parseInt(scanner.nextLine()) + 1));
+                    toDoList.remove((Integer.parseInt(scanner.nextLine()) - 1));
                     break;
             }
         }
