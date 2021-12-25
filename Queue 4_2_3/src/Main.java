@@ -8,7 +8,7 @@ public class Main {
         System.out.println("Enter the formula");
         String formula = scanner.nextLine();
         String[] arrayValues = formula.split(" ");
-
+        
         ArrayDeque<String> sign = new ArrayDeque<>();
         Queue<Integer> numbers = new ArrayDeque<>();
 
